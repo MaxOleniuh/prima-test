@@ -20,7 +20,7 @@ const Dashboard = () => {
 
   const filteredUsers =
     data?.filter((user) =>
-      user.name.toLowerCase().includes(searchTerm.toLowerCase())
+      user.role.toLowerCase().includes(searchTerm.toLowerCase())
     ) || [];
 
   return (
@@ -31,7 +31,7 @@ const Dashboard = () => {
       <div>
         <input
           type="text"
-          placeholder="Search users by name..."
+          placeholder="Filter users by role..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="mb-2 sm:mb-4 md:mb-6 w-full p-2 border border-gray-700 rounded-md bg-black bg-opacity-50 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
