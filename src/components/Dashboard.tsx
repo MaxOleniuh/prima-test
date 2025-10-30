@@ -5,6 +5,7 @@ const Dashboard = () => {
   const [data, setData] = useState<User[] | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const [roleFilter, setRoleFilter] = useState("All");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,23 +20,43 @@ const Dashboard = () => {
   }, []);
 
   const filteredUsers =
-    data?.filter((user) =>
-      user.role.toLowerCase().includes(searchTerm.toLowerCase())
-    ) || [];
+    data?.filter((user) => {
+      const matchesName = user.name
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase());
+      const matchesRole = roleFilter === "All" || user.role === roleFilter;
+      return matchesName && matchesRole;
+    }) || [];
 
   return (
     <div className="py-20 px-10 max-w-5xl w-full mx-auto">
       <h1 className="text-3xl sm:text-4xl md:text-5xl text-center font-bold mb-8 sm:mb-10 md:mb-14">
         User Dashboard
       </h1>
-      <div>
+      <div className="w-full gap-4 sm:gap-6 md:gap-8 mb-6 flex flex-col sm:flex-row items-center">
         <input
           type="text"
-          placeholder="Filter users by role..."
+          placeholder="Filter users by name..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="mb-2 sm:mb-4 md:mb-6 w-full p-2 border border-gray-700 rounded-md bg-black bg-opacity-50 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-3/4 p-2 border border-gray-700 rounded-md bg-black bg-opacity-50 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
+        {/* Role Filter Dropdown */}
+        <select
+          value={roleFilter}
+          onChange={(e) => setRoleFilter(e.target.value)}
+          className="w-full ml-auto sm:w-48 p-2 border border-gray-700 rounded-md bg-black bg-opacity-50 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          {/* Default option */}
+          <option value="All">All</option>
+
+          {/* Unique roles */}
+          {[...new Set(data?.map((user) => user.role))].map((role) => (
+            <option key={role} value={role}>
+              {role}
+            </option>
+          ))}
+        </select>
       </div>
       <ul>
         {isLoading && <p className="text-center">Loading...</p>}
