@@ -28,7 +28,7 @@ const UserModal = ({ user, onClose }: UserModalProps) => {
       <div className="bg-[#09090b] border border-gray-800 rounded-lg shadow-lg p-6 max-w-md w-full relative">
         <button
           onClick={onClose}
-          className="absolute cursor-pointer top-4 right-4 text-gray-500 hover:text-gray-300 duration-300 transition text-xl font-bold"
+          className="absolute cursor-pointer top-2 right-2 p-2 text-gray-500 hover:text-gray-300 duration-300 transition text-xl font-bold"
         >
           <X size={15} />
         </button>
