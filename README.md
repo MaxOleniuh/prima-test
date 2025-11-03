@@ -49,3 +49,20 @@ npm test
 ### ✅ Testing
 
 React Testing Library + Jest
+
+### 🛠️ Technology Choices
+
+- React (TypeScript)
+- Tailwind CSS
+- React hooks + API fetch
+- Jest + React Testing Library
+
+### Why These Choices?
+
+React + TS → Strong type safety & predictable component architecture
+
+Component-driven UI → Reusability, clarity, scalability
+
+Testing → Validates functionality & future change safety
+
+Clean styling approach → Easy maintenance and consistency
