@@ -14,6 +14,12 @@ npm install
 npm start
 ```
 
+## 🧪 Run Tests
+
+```
+npm test
+```
+
 ## 🎯 Features Implemented
 
 ### ✅ Core Functionality
