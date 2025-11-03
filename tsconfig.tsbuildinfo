@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/__test__/userlist.test.tsx","./src/components/dashboard.tsx","./src/components/useritem.tsx","./src/components/userlist.tsx","./src/components/usermodal.tsx","./src/components/userrolefilter.tsx","./src/components/usersearchfilter.tsx","./src/types/user.ts","./jest.setup.ts"],"version":"5.9.3"}

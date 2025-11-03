@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import type { User } from "../types/User";
+import { useEffect } from "react";
+import type { User } from "../types/user";
 import { X } from "lucide-react";
 
 interface UserModalProps {
